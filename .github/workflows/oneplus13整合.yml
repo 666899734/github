@@ -100,10 +100,8 @@ jobs:
            sed -i '/#include <trace\/hooks\/fs.h>/d' 50_add_susfs_in_gki-${{ github.event.inputs.ANDROID_VERSION }}-${{ github.event.inputs.KERNEL_VERSION }}.patch
 
            patch -p1 < 50_add_susfs_in_gki-${{ github.event.inputs.ANDROID_VERSION }}-${{ github.event.inputs.KERNEL_VERSION }}.patch || true
-           cp ../../SukiSU_patch/hooks/new_hooks.patch ./
            cp ../../SukiSU_patch/hooks/syscall_hooks.patch ./
            patch -p1 -F 3 < syscall_hooks.patch
-           patch -p1 -F 3 < new_hooks.patch
            
            
       - name: Apply Hide Stuff Patches
@@ -116,7 +114,7 @@ jobs:
       - name: Apply lz4kd Patches
         run: |
           cd kernel_workspace/kernel_platform/common
-          cp ../../SukiSU_patch/other/lz4k_patch/${{ github.event.inputs.KERNEL_VERSION }}/lz4kd.patch ./
+          cp ../../SukiSU_patch/other/lz4k_patch/${{ github.event.inputs.KERNEL_VERSION }}/lz4kd.patch ./          
           patch -p1 -F 3 < lz4kd.patch || true
         
       - name: Add SUSFS Configuration Settings
