@@ -25,7 +25,7 @@ on:
       KERNEL_NAME:
         description: "修改内核名称"
         required: true
-        default: '-android15-8-g013ec21bba94-383916444'
+        default: '-android15-8-SUN'
 
 jobs:
   build:
@@ -190,8 +190,8 @@ jobs:
       - name: Prepare AnyKernel3 Packages
         run: |
          cd kernel_workspace/kernel_platform/dist
-         git clone git@github.com:egcd123/AnyKernel3-ace5Pro.git AnyKernel3-no_kpm --depth=1
-         git clone git@github.com:egcd123/AnyKernel3-ace5Pro.git AnyKernel3-kpm --depth=1
+         git clone https://github.com/666899734/AnyKernel3.git AnyKernel3-no_kpm --depth=1 
+         git clone https://github.com/666899734/AnyKernel3.git AnyKernel3-kpm --depth=1
          rm -rf AnyKernel3-{kpm,no_kpm}/.git
          rm -f AnyKernel3-{kpm,no_kpm}/push.sh
     
